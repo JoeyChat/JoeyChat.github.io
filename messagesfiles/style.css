@@ -1,13 +1,13 @@
 body {
 	font-family: Arial, sans-serif;
-	background-color: #f2f2f2;
+	background-color: #00000;
 }
 
 .chat-container {
 	width: 50%;
 	margin: 0 auto;
 	padding: 20px;
-	background-color: #fff;
+	background-color: #00000;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -35,4 +35,16 @@ body {
 
 .message .content {
 	margin-left: 20px;
+}
+body {
+  color: blue;
+}
+
+h1 {
+  color: white;
+}
+}
+
+div {
+  color: gray;
 }
