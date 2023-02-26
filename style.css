@@ -1,0 +1,52 @@
+body {
+    background-color: #222; /* Set a dark background color */
+    color: #fff; /* Set a light text color */
+    font-family: Arial, sans-serif;
+}
+
+/* Add a gradient to the header element */
+header {
+    background: linear-gradient(to bottom right, #6f00ff, #00bfff);
+}
+
+/* Add a gradient to the main content area */
+main {
+    background: linear-gradient(to top right, #d9931c, #d13803);
+    padding: 50px;
+}
+
+/* Add a gradient to the footer element */
+footer {
+    background: linear-gradient(to bottom left, #00ffbf, #0062ff);
+    padding: 20px;
+    text-align: center;
+}
+
+/* Set the color of text inputs and buttons */
+input[type="text"],
+button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.5s ease;
+}
+
+/* Add a hover effect to buttons */
+button:hover {
+    background-color: #666;
+    transition: background-color 0.5s ease;
+}
+
+/* Set the color of links */
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Add a hover effect to links */
+a:hover {
+    text-decoration: underline;
+}
