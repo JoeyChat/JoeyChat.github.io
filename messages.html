@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Chatroom Messages</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- This is where the messages will be displayed -->
+    <div class="messages-container">
+        <div class="message">
+            <div class="message-header">
+                <span class="username">John</span>
+                <span class="timestamp">11:30 AM</span>
+            </div>
+            <div class="message-body">
+                Hey, what's up?
+            </div>
+        </div>
+        <div class="message">
+            <div class="message-header">
+                <span class="username">Emily</span>
+                <span class="timestamp">11:35 AM</span>
+            </div>
+            <div class="message-body">
+                Not much, how about you?
+            </div>
+        </div>
+        <!-- Add more messages here -->
+    </div>
+
+    <!-- This is where the user can enter a new message -->
+    <form class="new-message-container">
+        <input type="text" placeholder="Enter your message..." name="message-input">
+        <button type="submit">Send</button>
+    </form>
+
+    <!-- Script to display the current time in the timestamp format -->
+    <script>
+        function updateTimestamps() {
+            const messages = document.querySelectorAll('.message');
+            for (let i = 0; i < messages.length; i++) {
+                const message = messages[i];
+                const timestamp = message.querySelector('.timestamp');
+                const timestampDate = new Date(timestamp.dataset.timestamp);
+                const hours = timestampDate.getHours().toString().padStart(2, '0');
+                const minutes = timestampDate.getMinutes().toString().padStart(2, '0');
+                const ampm = hours < 12 ? 'AM' : 'PM';
+                timestamp.textContent = `${hours % 12}:${minutes} ${ampm}`;
+            }
+        }
+        setInterval(updateTimestamps, 1000);
+    </script>
+
+    <!-- Script to handle new messages -->
+    <script>
+        const messageForm = document.querySelector('.new-message-container');
+        const messageContainer = document.querySelector('.messages-container');
+        messageForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const messageInput = messageForm.querySelector('input[name="message-input"]');
+            const messageText = messageInput.value;
+            const timestamp = new Date().getTime();
+            const username = "Your Username"; // Replace with the username of the sender
+            const newMessage = `
+                <div class="message">
+                    <div class="message-header">
+                        <span class="username">${username}</span>
+                        <span class="timestamp" data-timestamp="${timestamp}">${timestamp}</span>
+                    </div>
+                    <div class="message-body">
+                        ${messageText}
+                    </div>
+                </div>
+            `;
+            messageContainer.innerHTML += newMessage;
+            messageInput.value = '';
+        });
+    </script>
+</body>
+</html>
